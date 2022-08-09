@@ -12,7 +12,9 @@ const PORT = process.env.PORT;
 const server = new ApolloServer({
   typeDefs,
   resolvers,
-  cache: new InMemoryLRUCache(),
+  cache: new InMemoryLRUCache({
+    maxSize: Math.pow(2, 20) * 50,
+  }),
   context: ({ req }) => ({ req }),
   cors: {
     origin: "*",
