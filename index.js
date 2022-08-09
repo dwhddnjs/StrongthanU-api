@@ -3,14 +3,12 @@ const mongoose = require("mongoose");
 
 const resolvers = require("./graphql/resolvers");
 const typeDefs = require("./graphql/typeDefs");
-const { InMemoryLRUCache } = require("@apollo/utils.keyvaluecache");
 
 require("dotenv").config();
 
 const server = new ApolloServer({
   typeDefs,
   resolvers,
-  cache: new InMemoryLRUCache(),
   context: ({ req }) => ({ req }),
   cors: {
     origin: "*",
