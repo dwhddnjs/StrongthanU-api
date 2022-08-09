@@ -3,10 +3,8 @@
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
-  "type": "module",
   "scripts": {
-    "start": "node --experimental-modules --es-module-specifier-resolution=node index.js",
-    "dev": "nodemon --experimental-modules --es-module-specifier-resolution=node index.js"
+    "start": "node index.js"
   },
   "dependencies": {
     "apollo-server": "^3.10.0",

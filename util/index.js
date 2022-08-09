@@ -1,1 +1,1 @@
-export { default as getMultiple } from './getMultiple';
+export { default as getMultiple } from "./getMultiple";

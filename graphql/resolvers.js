@@ -1,5 +1,7 @@
-import Ranker from '../models/ranker';
-import { getMultiple } from '../util';
+// import Ranker from "../models/ranker";
+const Ranker = require("../models/ranker");
+// import { getMultiple } from "../util";
+const { getMultiple } = require("../util");
 
 const resolver = {
   Query: {
@@ -11,11 +13,14 @@ const resolver = {
       return await (
         await Ranker.find()
       )
-        .filter((el) => el.gender === '남자')
+        .filter((el) => el.gender === "남자")
         .sort((a, b) => {
           const aTotalWeight = a.bench + a.dead + a.squat;
           const bTotalWeight = b.bench + b.dead + b.squat;
-          return getMultiple(bTotalWeight, b.body) - getMultiple(aTotalWeight, a.body);
+          return (
+            getMultiple(bTotalWeight, b.body) -
+            getMultiple(aTotalWeight, a.body)
+          );
         });
     },
 
@@ -23,17 +28,23 @@ const resolver = {
       return await (
         await Ranker.find()
       )
-        .filter((el) => el.gender === '여자')
+        .filter((el) => el.gender === "여자")
         .sort((a, b) => {
           const aTotalWeight = a.bench + a.dead + a.squat;
           const bTotalWeight = b.bench + b.dead + b.squat;
-          return getMultiple(bTotalWeight, b.body) - getMultiple(aTotalWeight, a.body);
+          return (
+            getMultiple(bTotalWeight, b.body) -
+            getMultiple(aTotalWeight, a.body)
+          );
         });
     },
   },
 
   Mutation: {
-    async addRanker(_, { rankerInput: { nickname, gender, body, squat, bench, dead } }) {
+    async addRanker(
+      _,
+      { rankerInput: { nickname, gender, body, squat, bench, dead } }
+    ) {
       const newRanker = new Ranker({
         nickname: nickname,
         gender: gender,
