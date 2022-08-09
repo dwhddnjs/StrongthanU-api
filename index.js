@@ -4,10 +4,14 @@ const mongoose = require("mongoose");
 const resolvers = require("./graphql/resolvers");
 const typeDefs = require("./graphql/typeDefs");
 
-// require("dotenv").config();
+require("dotenv").config();
 
-// const URL = process.env.DB_URL;
-// const PORT = process.env.PORT;
+const URL = process.env.DB_URL;
+
+const PORT = process.env.PORT;
+
+console.log("URL: ", URL);
+console.log("PORT: ", PORT);
 
 const server = new ApolloServer({
   typeDefs,
