@@ -1,4 +1,3 @@
-// import pkg from "mongoose";
 const pkg = require("mongoose");
 
 const { model, Schema } = pkg;
@@ -12,7 +11,4 @@ const rankerSchema = new Schema({
   dead: Number,
 });
 
-// export default model("ranker", rankerSchema);
 module.exports = model("ranker", rankerSchema);
-
-// "dev": "nodemon --experimental-modules --es-module-specifier-resolution=node index.js"

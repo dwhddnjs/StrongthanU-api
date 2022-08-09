@@ -1,7 +1,5 @@
-// import Ranker from "../models/ranker";
 const Ranker = require("../models/ranker");
-// import { getMultiple } from "../util";
-const { getMultiple } = require("../util");
+const getMultiple = require("../util/getMultiple");
 
 const resolver = {
   Query: {
@@ -64,5 +62,4 @@ const resolver = {
   },
 };
 
-// export default resolver;
 module.exports = resolver;

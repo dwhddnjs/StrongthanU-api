@@ -1,16 +1,10 @@
-// import { ApolloServer } from "apollo-server";
 const { ApolloServer } = require("apollo-server");
 const mongoose = require("mongoose");
-// import mongoose from "mongoose";
-// import { resolvers, typeDefs } from "./graphql";
 
 const resolvers = require("./graphql/resolvers");
 const typeDefs = require("./graphql/typeDefs");
-// import dotenv from "dotenv";
-// import { InMemoryLRUCache } from "@apollo/utils.keyvaluecache";
 
 require("dotenv").config();
-// dotenv.config();
 
 const URL = process.env.DB_URL;
 const PORT = process.env.PORT;
