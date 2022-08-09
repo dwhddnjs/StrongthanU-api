@@ -11,6 +11,7 @@ const PORT = process.env.PORT;
 const server = new ApolloServer({
   typeDefs,
   resolvers,
+  context: ({ req }) => ({ req }),
   cors: {
     origin: "*",
   },
@@ -20,7 +21,7 @@ mongoose
   .connect(MONGODB, { useNewUrlParser: true })
   .then(() => {
     console.log("몽고디비랑 연결 되었습니다");
-    return server.listen(PORT);
+    return server.listen({ port: PORT || 4000 });
   })
   .then((res) => {
     console.log(`서버가 ${res.url}로 실행중입니다`);
