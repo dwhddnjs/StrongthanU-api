@@ -12,6 +12,7 @@ const rankerSchema = new Schema({
   dead: Number,
 });
 
-export default model("ranker", rankerSchema);
+// export default model("ranker", rankerSchema);
+module.exports = model("ranker", rankerSchema);
 
 // "dev": "nodemon --experimental-modules --es-module-specifier-resolution=node index.js"

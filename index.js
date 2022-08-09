@@ -1,10 +1,16 @@
-import { ApolloServer } from "apollo-server";
-import mongoose from "mongoose";
-import { resolvers, typeDefs } from "./graphql";
-import dotenv from "dotenv";
-import { InMemoryLRUCache } from "@apollo/utils.keyvaluecache";
+// import { ApolloServer } from "apollo-server";
+const { ApolloServer } = require("apollo-server");
+const mongoose = require("mongoose");
+// import mongoose from "mongoose";
+// import { resolvers, typeDefs } from "./graphql";
 
-dotenv.config();
+const resolvers = require("./graphql/resolvers");
+const typeDefs = require("./graphql/typeDefs");
+// import dotenv from "dotenv";
+// import { InMemoryLRUCache } from "@apollo/utils.keyvaluecache";
+
+require("dotenv").config();
+// dotenv.config();
 
 const URL = process.env.DB_URL;
 const PORT = process.env.PORT;
@@ -12,9 +18,6 @@ const PORT = process.env.PORT;
 const server = new ApolloServer({
   typeDefs,
   resolvers,
-  cache: new InMemoryLRUCache({
-    maxSize: Math.pow(2, 20) * 50,
-  }),
   context: ({ req }) => ({ req }),
   cors: {
     origin: "*",
