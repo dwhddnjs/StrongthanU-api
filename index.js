@@ -6,12 +6,12 @@ const typeDefs = require("./graphql/typeDefs");
 
 require("dotenv").config();
 
-const URL = process.env.DB_URL;
+// const URL = process.env.DB_URL;
 
-const PORT = process.env.PORT;
+// const PORT = process.env.PORT;
 
-console.log("URL: ", URL);
-console.log("PORT: ", PORT);
+// console.log("URL: ", URL);
+// console.log("PORT: ", PORT);
 
 const server = new ApolloServer({
   typeDefs,
