@@ -5,8 +5,8 @@
   "license": "MIT",
   "type": "module",
   "scripts": {
-    "dev": "nodemon --experimental-modules --es-module-specifier-resolution=node index.js",
-    "start": "node index.js"
+    "start": "node --experimental-modules --es-module-specifier-resolution=node index.js",
+    "dev": "nodemon --experimental-modules --es-module-specifier-resolution=node index.js"
   },
   "dependencies": {
     "apollo-server": "^3.10.0",
