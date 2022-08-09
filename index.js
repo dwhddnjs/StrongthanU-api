@@ -2,6 +2,7 @@ import { ApolloServer } from "apollo-server";
 import mongoose from "mongoose";
 import { resolvers, typeDefs } from "./graphql";
 import dotenv from "dotenv";
+import { InMemoryLRUCache } from "@apollo/utils.keyvaluecache";
 
 dotenv.config();
 
@@ -11,6 +12,7 @@ const PORT = process.env.PORT;
 const server = new ApolloServer({
   typeDefs,
   resolvers,
+  cache: new InMemoryLRUCache(),
   context: ({ req }) => ({ req }),
   cors: {
     origin: "*",
