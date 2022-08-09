@@ -4,10 +4,10 @@ const mongoose = require("mongoose");
 const resolvers = require("./graphql/resolvers");
 const typeDefs = require("./graphql/typeDefs");
 
-require("dotenv").config();
+// require("dotenv").config();
 
-const URL = process.env.DB_URL;
-const PORT = process.env.PORT;
+// const URL = process.env.DB_URL;
+// const PORT = process.env.PORT;
 
 const server = new ApolloServer({
   typeDefs,
@@ -19,10 +19,13 @@ const server = new ApolloServer({
 });
 
 mongoose
-  .connect(URL, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  })
+  .connect(
+    "mongodb+srv://per1215:a102030@first-project.oxmyz.mongodb.net/?retryWrites=true&w=majority",
+    {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    }
+  )
   .then(() => {
     console.log("몽고디비랑 연결 되었습니다");
     return server.listen({ port: PORT || 4000 });
